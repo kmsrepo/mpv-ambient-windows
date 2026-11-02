@@ -9,6 +9,7 @@
 ## ✨ Features
 
 - 🌟 **Native GPU Acceleration**: Uses `vo=gpu-next` and `border-background=blur` for silky smooth, low-overhead ambient border rendering on modern Windows GPUs (Direct3D 11 / Vulkan).
+- 🎵 **Smart Auto-BGM for Silent Videos**: Automatically detects videos lacking an audio track (e.g. silent presentation slides or demo loops) and injects/loops background music from `bgm/` at a gentle 60% volume. Videos with narration/audio remain untouched.
 - 🔁 **Recursive Folder Infinite Looping**: Native `directory-mode=recursive` and `loop-playlist=inf` automatically scans any folder and all its subfolders for video files and loops them continuously. Perfect for exhibitions, kiosks, digital signage, and store displays.
 - 📺 **Zero Impact on 16:9 Videos**: Ambient borders automatically appear only on mismatched aspect ratios (e.g. 9:16 vertical shorts on 16:9 monitors) — standard landscape videos remain completely untouched.
 - 📦 **Standalone Portable Release (No PowerShell Required)**: Environments blocking PowerShell can download the standalone pre-packaged portable zip directly from [Releases](https://github.com/kmsrepo/mpv-ambient-windows/releases). Unzip and run!
