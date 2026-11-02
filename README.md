@@ -9,14 +9,27 @@
 ## ✨ Features
 
 - 🌟 **Native GPU Acceleration**: Uses `vo=gpu-next` and `border-background=blur` for silky smooth, low-overhead ambient border rendering on modern Windows GPUs (Direct3D 11 / Vulkan).
+- 🔁 **Recursive Folder Infinite Looping**: Native `directory-mode=recursive` and `loop-playlist=inf` automatically scans any folder and all its subfolders for video files and loops them continuously. Perfect for exhibitions, kiosks, digital signage, and store displays.
 - 📺 **Zero Impact on 16:9 Videos**: Ambient borders automatically appear only on mismatched aspect ratios (e.g. 9:16 vertical shorts on 16:9 monitors) — standard landscape videos remain completely untouched.
-- ⚡ **One-Click Installation**: 1-line PowerShell script installs cleanly into `%APPDATA%\mpv` or your portable `portable_config/` directory.
+- 📦 **Standalone Portable Release (No PowerShell Required)**: Environments blocking PowerShell can download the standalone pre-packaged portable zip directly from [Releases](https://github.com/kmsrepo/mpv-ambient-windows/releases). Unzip and run!
+- ⚡ **One-Click Script Installation**: 1-line PowerShell script installs cleanly into `%APPDATA%\mpv` or existing portable directories.
 - 🔄 **Safe Auto-Backup**: Automatically preserves and backs up any existing `mpv.conf` or `input.conf` before making changes.
 - ⌨️ **Interactive Controls**: Press `b` to toggle blur on/off on the fly, or adjust blur radius dynamically with hotkeys.
 
 ---
 
-## 🚀 Quick Install (1-Step PowerShell)
+## 📦 Standalone Portable Download (No PowerShell / Zero Setup)
+
+If your environment **rejects or blocks PowerShell** (corporate laptops, kiosk computers, restricted user accounts):
+
+1. Go to **[Releases](https://github.com/kmsrepo/mpv-ambient-windows/releases)** and download **`mpv-ambient-portable-windows-x64.zip`**.
+2. Unzip anywhere (e.g., Desktop or USB stick).
+3. Put video files (or nested subfolders) into the `videos` folder and double-click **`PLAY_VIDEOS_FOLDER.bat`**.
+   * *Or simply drag and drop ANY folder directly onto `PLAY_VIDEOS_FOLDER.bat` or `mpv.exe`!*
+
+---
+
+## 🚀 Quick Install via PowerShell (If PowerShell is allowed)
 
 Open PowerShell on your Windows PC and paste:
 
@@ -93,12 +106,18 @@ vf-add="lavfi=[split[fg][bg];[bg]scale=1920:1080:force_original_aspect_ratio=inc
 ## 🇰🇷 한국어 안내 (Korean Guide)
 
 ### 특징
-- 유튜브 쇼츠, 릴스, 틱톡 등의 9:16 세로 영상을 16:9 가로 모니터에서 재생할 때, 좌우의 칙칙한 검은색 레터박스/필러박스를 영상 기반의 은은한 앰비언트 블러(Ambient Blur) 화면으로 채워줍니다.
-- 최신 mpv의 네이티브 GPU 가속(`vo=gpu-next`)을 활용하여 CPU 점유율 없이 가볍고 부드럽게 작동합니다.
-- 일반 16:9 가로 영상 재생 시에는 전혀 영향을 주지 않습니다.
+- **세로 쇼츠 앰비언트 블러**: 유튜브 쇼츠, 릴스, 틱톡 등의 9:16 세로 영상을 16:9 가로 모니터에서 재생할 때, 좌우의 칙칙한 검은색 필러박스를 영상 기반의 은은한 앰비언트 블러(Ambient Blur) 화면으로 채워줍니다.
+- **하위 폴더 재귀 무한 반복**: `directory-mode=recursive` 및 `loop-playlist=inf` 설정이 기본 탑재되어 지정한 폴더 내의 모든 하위 폴더 및 영상 파일을 자동으로 스캔하여 무한 연속 재생합니다 (전시관, 팝업스토어, 키오스크 최적화).
+- **GPU 가속**: 최신 mpv의 네이티브 GPU 가속(`vo=gpu-next`)을 활용하여 CPU 점유율 없이 가볍고 부드럽게 작동합니다.
+- **가로 영상 무간섭**: 일반 16:9 가로 영상 재생 시에는 여백이 없으므로 전혀 영향을 주지 않습니다.
 
-### 1초 설치
-Windows PowerShell을 실행하고 아래 한 줄을 복사하여 붙여넣으세요:
+### 📦 PowerShell 사용 불가 환경 (무설치 포터블)
+회사 보안 정책이나 키오스크 환경 등으로 **PowerShell 실행이 차단**된 경우:
+1. **[Releases](https://github.com/kmsrepo/mpv-ambient-windows/releases)** 페이지에서 **`mpv-ambient-portable-windows-x64.zip`** 파일을 다운로드합니다.
+2. 압축을 푼 뒤, 재생할 영상들이 담긴 폴더를 `PLAY_VIDEOS_FOLDER.bat`에 드래그&드롭하거나, `videos` 폴더에 영상을 넣고 `PLAY_VIDEOS_FOLDER.bat`을 더블 클릭하면 즉시 무한 반복 재생됩니다.
+
+### ⚡ PowerShell 1초 자동 설정
+PowerShell 사용이 가능한 일반 환경에서는 아래 한 줄을 실행하면 `%APPDATA%\mpv`에 자동 구성됩니다:
 ```powershell
 irm https://raw.githubusercontent.com/kmsrepo/mpv-ambient-windows/main/install.ps1 | iex
 ```

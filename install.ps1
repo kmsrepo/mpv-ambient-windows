@@ -79,6 +79,11 @@ hwdec=auto-safe
 border-background=blur
 background-blur-radius=25
 
+# --- Recursive Folder & Playlist Looping ---
+directory-mode=recursive
+directory-filter-types=video
+loop-playlist=inf
+
 # --- Window & UX ---
 keep-open=yes
 autofit-larger=90%x90%
