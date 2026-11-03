@@ -85,7 +85,7 @@ directory-filter-types=video
 loop-playlist=inf
 
 # --- Window & UX ---
-keep-open=yes
+keep-open=no
 autofit-larger=90%x90%
 force-window=immediate
 "@
